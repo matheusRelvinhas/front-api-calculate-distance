@@ -42,7 +42,7 @@ const CalculateDistanceForm: React.FC = () => {
   return (
     <div>
       <div>
-        {isLoading && (<div>Loading...</div>)}
+        {isLoading && <div>Loading...</div>}
         <span>Origem</span>
         <AddressLookup
           placeholder="ex.: 00000-000"
@@ -50,11 +50,11 @@ const CalculateDistanceForm: React.FC = () => {
           onChange={handleCepOriginChange}
         />
         {isLoadingOrigin ? (
-          <div><span>Loading...</span></div>
+          <div>
+            <span>Loading...</span>
+          </div>
         ) : (
-          <>
-            {cepOriginFound ? (<span>Found</span>) : (<span>NotFound</span>)}
-          </>
+          <>{cepOriginFound ? <span>Found</span> : <span>NotFound</span>}</>
         )}
         <input
           placeholder="rua"
@@ -95,11 +95,11 @@ const CalculateDistanceForm: React.FC = () => {
           onChange={handleCepDestinyChange}
         />
         {isLoadingDestiny ? (
-          <div><span>Loading...</span></div>
+          <div>
+            <span>Loading...</span>
+          </div>
         ) : (
-          <>
-            {cepDestinyFound ? (<span>Found</span>) : (<span>NotFound</span>)}
-          </>
+          <>{cepDestinyFound ? <span>Found</span> : <span>NotFound</span>}</>
         )}
         <input
           placeholder="endereço"
@@ -132,7 +132,15 @@ const CalculateDistanceForm: React.FC = () => {
           onChange={(e) => setDestinyInputState(e.target.value)}
         />
       </div>
-      <button onClick={() => calculateDistance(`${originInputRoad},${originNumberInput},${originInputDistrict},${originInputCity},${originInputState}`, `${destinyInputRoad},${destinyNumberInput},${destinyInputDistrict},${destinyInputCity},${destinyInputState}`)}>
+      <button
+        onClick={() =>
+          calculateDistance(
+            `${originInputRoad},${originNumberInput},${originInputDistrict},${originInputCity},${originInputState}`,
+            `${destinyInputRoad},${destinyNumberInput},${destinyInputDistrict},${destinyInputCity},${destinyInputState}`
+          )
+        }
+        disabled={originInputRoad === '' || destinyInputRoad === ''}
+      >
         Calcular
       </button>
       {distanceInput !== '' && (
