@@ -1,58 +1,145 @@
 'use client';
 
-import React, { useState } from 'react';
 import './CalculateDistanceForm.css';
-import axios from 'axios';
+import { useGlobalContext } from '@/Context/store';
+import AddressLookup from '../AddressLookup/AddressLookup';
 
 const CalculateDistanceForm: React.FC = () => {
-  const [originInput, setOriginInput] = useState('');
-  const [destinyInput, setDestinyInput] = useState('');
-  const [distanceInput, setDistanceInput] = useState('');
-
-  async function calculateDistanceKm(origin: string, destiny: string) {
-    try {
-      const response = await axios.get(
-        'https://calculate-distance-api.vercel.app/',
-        {
-          params: {
-            origin: origin,
-            destiny: destiny,
-          },
-        }
-      );
-      const distanceText = response.data.distance.text;
-      const distanceValue = response.data.distance.value;
-      console.log(distanceValue);
-      setDistanceInput(distanceText)
-    } catch (error) {
-      console.error(error);
-    }
-  }
+  const {
+    originInputRoad,
+    setOriginInputRoad,
+    originNumberInput,
+    setOriginNumberInput,
+    originInputDistrict,
+    setOriginInputDistrict,
+    originInputCity,
+    setOriginInputCity,
+    originInputState,
+    setOriginInputState,
+    destinyInputRoad,
+    setDestinyInputRoad,
+    destinyNumberInput,
+    setDestinyNumberInput,
+    destinyInputDistrict,
+    setDestinyInputDistrict,
+    destinyInputCity,
+    setDestinyInputCity,
+    destinyInputState,
+    setDestinyInputState,
+    calculateDistance,
+    cepOrigin,
+    handleCepOriginChange,
+    cepDestiny,
+    handleCepDestinyChange,
+    distanceInput,
+    cepOriginFound,
+    cepDestinyFound,
+    isLoadingOrigin,
+    isLoadingDestiny,
+    isLoading,
+  } = useGlobalContext();
 
   return (
-    <div className="">
+    <div>
       <div>
-        <label>Origem</label>
+        {isLoading && (<div>Loading...</div>)}
+        <span>Origem</span>
+        <AddressLookup
+          placeholder="ex.: 00000-000"
+          value={cepOrigin}
+          onChange={handleCepOriginChange}
+        />
+        {isLoadingOrigin ? (
+          <div><span>Loading...</span></div>
+        ) : (
+          <>
+            {cepOriginFound ? (<span>Found</span>) : (<span>NotFound</span>)}
+          </>
+        )}
         <input
-          placeholder="origem"
+          placeholder="rua"
           type="text"
-          value={originInput}
-          onChange={(e) => setOriginInput(e.target.value)}
+          value={originInputRoad}
+          onChange={(e) => setOriginInputRoad(e.target.value)}
+        />
+        <input
+          placeholder="número"
+          type="number"
+          value={originNumberInput}
+          onChange={(e) => setOriginNumberInput(e.target.value)}
+        />
+        <input
+          placeholder="bairro"
+          type="text"
+          value={originInputDistrict}
+          onChange={(e) => setOriginInputDistrict(e.target.value)}
+        />
+        <input
+          placeholder="cidade"
+          type="text"
+          value={originInputCity}
+          onChange={(e) => setOriginInputCity(e.target.value)}
+        />
+        <input
+          placeholder="estado"
+          type="text"
+          value={originInputState}
+          onChange={(e) => setOriginInputState(e.target.value)}
         />
       </div>
       <div>
-        <label>Destino</label>
+        <span>Destino</span>
+        <AddressLookup
+          placeholder="ex.: 00000-000"
+          value={cepDestiny}
+          onChange={handleCepDestinyChange}
+        />
+        {isLoadingDestiny ? (
+          <div><span>Loading...</span></div>
+        ) : (
+          <>
+            {cepDestinyFound ? (<span>Found</span>) : (<span>NotFound</span>)}
+          </>
+        )}
         <input
-          placeholder="destino"
+          placeholder="endereço"
           type="text"
-          value={destinyInput}
-          onChange={(e) => setDestinyInput(e.target.value)}
+          value={destinyInputRoad}
+          onChange={(e) => setDestinyInputRoad(e.target.value)}
+        />
+        <input
+          placeholder="número"
+          type="number"
+          value={destinyNumberInput}
+          onChange={(e) => setDestinyNumberInput(e.target.value)}
+        />
+        <input
+          placeholder="bairro"
+          type="text"
+          value={destinyInputDistrict}
+          onChange={(e) => setDestinyInputDistrict(e.target.value)}
+        />
+        <input
+          placeholder="cidade"
+          type="text"
+          value={destinyInputCity}
+          onChange={(e) => setDestinyInputCity(e.target.value)}
+        />
+        <input
+          placeholder="estado"
+          type="text"
+          value={destinyInputState}
+          onChange={(e) => setDestinyInputState(e.target.value)}
         />
       </div>
-      <button onClick={() => calculateDistanceKm(originInput, destinyInput)}>
+      <button onClick={() => calculateDistance(`${originInputRoad},${originNumberInput},${originInputDistrict},${originInputCity},${originInputState}`, `${destinyInputRoad},${destinyNumberInput},${destinyInputDistrict},${destinyInputCity},${destinyInputState}`)}>
         Calcular
       </button>
-      <h2>{distanceInput}</h2>
+      {distanceInput !== '' && (
+        <div>
+          <span>{distanceInput}</span>
+        </div>
+      )}
     </div>
   );
 };
