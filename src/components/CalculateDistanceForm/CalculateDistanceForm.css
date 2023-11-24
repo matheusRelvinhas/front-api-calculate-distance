@@ -41,6 +41,10 @@
   height: 100%;
 }
 
+.calculate-distance-form-cep div:first-child {
+  margin-right: 2vw;
+}
+
 .calculate-distance-form-cep-checked figure img {
   width: 4vh;
   min-width: 35px;
@@ -48,7 +52,6 @@
   height: 4vh;
   min-height: 35px;
   max-height: 70px;
-  margin-left: 2vw;
 }
 
 .calculate-distance-form-road-number {
@@ -134,11 +137,12 @@
   background-color: #141414;
   padding: 2vh 2vw;
   border-radius: 5px;
-  width: 5vw;
-  min-width: 50px;
+  width: 10vw;
+  min-width: 100px;
   height: 5vh;
   min-height: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-bottom: 2vh;
 }

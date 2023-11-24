@@ -2,6 +2,7 @@
 
 import { useGlobalContext } from '@/Context/store';
 import AddressLookup from '../AddressLookup/AddressLookup';
+import GitHubLink from '../GitHubLink/GitHubLink';
 import Loader from '../Loader/Loader';
 import './CalculateDistanceForm.css';
 
@@ -230,6 +231,7 @@ const CalculateDistanceForm: React.FC = () => {
         <div className="calculate-distance-form-distance">
           <h2>{distanceInput}</h2>
         </div>
+        <GitHubLink username="matheusRelvinhas/calculateDistanceAPI" />
     </div>
   );
 };
