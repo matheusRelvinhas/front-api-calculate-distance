@@ -7,6 +7,20 @@
   align-items: center;
 }
 
+.calculate-distance-form-api-title{
+  display: flex;
+}
+
+.calculate-distance-form-img figure img {
+  width: 5vh;
+  min-width: 45px;
+  max-width: 90px;
+  height: 4vh;
+  min-height: 35px;
+  max-height: 70px;
+  margin-left: 2vw;
+}
+
 .calculate-distance-form-div {
   display: flex;
   flex-direction: column;

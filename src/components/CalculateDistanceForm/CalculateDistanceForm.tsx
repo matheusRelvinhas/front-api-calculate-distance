@@ -43,7 +43,17 @@ const CalculateDistanceForm: React.FC = () => {
 
   return (
     <div className="calculate-distance-form-container">
-      <h2>.Api Calcular Distância</h2>
+      <div className="calculate-distance-form-api-title">
+        <h2>.Api Calcular Distância</h2>
+        <div className="calculate-distance-form-img">
+          <figure>
+            <picture>
+              <source src={'./img/calculate-distance.png'} type="image/png" />
+              <img src={'./img/calculate-distance.png'} alt="icon-img" />
+            </picture>
+          </figure>
+        </div>
+      </div>
       <div className="calculate-distance-form-div">
         <div
           className="calculate-distance-form-origin-destiny"
@@ -69,10 +79,7 @@ const CalculateDistanceForm: React.FC = () => {
                     <figure>
                       <picture>
                         <source src={'./img/check.png'} type="image/png" />
-                        <img
-                          src={'./img/check.png'}
-                          alt="icon-img"
-                        />
+                        <img src={'./img/check.png'} alt="icon-img" />
                       </picture>
                     </figure>
                   </div>
@@ -84,10 +91,7 @@ const CalculateDistanceForm: React.FC = () => {
                           src={'./img/do-not-check.png'}
                           type="image/png"
                         />
-                        <img
-                          src={'./img/do-not-check.png'}
-                          alt="icon-img"
-                        />
+                        <img src={'./img/do-not-check.png'} alt="icon-img" />
                       </picture>
                     </figure>
                   </div>
@@ -151,10 +155,7 @@ const CalculateDistanceForm: React.FC = () => {
                     <figure>
                       <picture>
                         <source src={'./img/check.png'} type="image/png" />
-                        <img
-                          src={'./img/check.png'}
-                          alt="icon-img"
-                        />
+                        <img src={'./img/check.png'} alt="icon-img" />
                       </picture>
                     </figure>
                   </div>
@@ -166,10 +167,7 @@ const CalculateDistanceForm: React.FC = () => {
                           src={'./img/do-not-check.png'}
                           type="image/png"
                         />
-                        <img
-                          src={'./img/do-not-check.png'}
-                          alt="icon-img"
-                        />
+                        <img src={'./img/do-not-check.png'} alt="icon-img" />
                       </picture>
                     </figure>
                   </div>
@@ -228,10 +226,10 @@ const CalculateDistanceForm: React.FC = () => {
           </button>
         </div>
       </div>
-        <div className="calculate-distance-form-distance">
-          <h2>{distanceInput}</h2>
-        </div>
-        <GitHubLink username="matheusRelvinhas/calculateDistanceAPI" />
+      <div className="calculate-distance-form-distance">
+        <h2>{distanceInput}</h2>
+      </div>
+      <GitHubLink username="matheusRelvinhas/calculateDistanceAPI" />
     </div>
   );
 };
