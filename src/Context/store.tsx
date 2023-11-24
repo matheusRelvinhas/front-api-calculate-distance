@@ -69,7 +69,7 @@ const GlobalContext = createContext<ContextProps>({
   handleCepOriginChange: () => {},
   cepDestiny: '',
   handleCepDestinyChange: () => {},
-  distanceInput: '',
+  distanceInput: '-',
   cepOriginFound: false,
   cepDestinyFound: false,
   isLoadingOrigin: false,
@@ -95,7 +95,7 @@ export const GlobalContextProvider: React.FC<GlobalContextProviderProps> = ({
   const [destinyInputDistrict, setDestinyInputDistrict] = useState('');
   const [destinyInputCity, setDestinyInputCity] = useState('');
   const [destinyInputState, setDestinyInputState] = useState('');
-  const [distanceInput, setDistanceInput] = useState('');
+  const [distanceInput, setDistanceInput] = useState('-');
   const [cepOrigin, setCepOrigin] = useState('');
   const [cepDestiny, setCepDestiny] = useState('');
   const [cepOriginFound, setCepOriginFound] = useState(false);
@@ -116,13 +116,17 @@ export const GlobalContextProvider: React.FC<GlobalContextProviderProps> = ({
           },
         }
       );
-      const distanceText = response.data.distance.text;
-      const distanceValue = response.data.distance.value;
-      console.log(distanceValue);
-      console.log(origin, destiny)
-      setDistanceInput(distanceText)
+      if (response.data) {
+        const distanceText = response.data.distance.text;
+        const distanceValue = response.data.distance.value;
+        console.log(distanceValue);
+        setDistanceInput(distanceText)
+      } else {
+        setDistanceInput('-')
+      }
     } catch (error) {
-      console.error(error);
+      console.log('Error: Not found');
+      setDistanceInput('-')
     }
     setIsLoading(false);
   }

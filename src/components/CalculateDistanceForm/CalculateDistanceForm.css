@@ -1,0 +1,144 @@
+.calculate-distance-form-container {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.calculate-distance-form-div {
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+  background-color: #141414;
+  margin: 2vh 2vw;
+  width: 100%;
+  min-width: 260px;
+  max-width: 1040px;
+}
+
+#border-botton {
+  border-bottom: solid 2px #434343;
+}
+
+.calculate-distance-form-origin-destiny {
+  display: flex;
+  flex-direction: column;
+  padding: 1vh 1vw;
+}
+
+.calculate-distance-form-title {
+  text-align: center;
+  padding-bottom: 1vh;
+}
+
+.calculate-distance-form-cep {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 1vh;
+  height: 100%;
+}
+
+.calculate-distance-form-cep-checked figure img {
+  width: 4vh;
+  min-width: 35px;
+  max-width: 70px;
+  height: 4vh;
+  min-height: 35px;
+  max-height: 70px;
+  margin-left: 2vw;
+}
+
+.calculate-distance-form-road-number {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  padding-bottom: 1vh;
+}
+
+.calculate-distance-form-road-number input:first-child {
+  width: 70%;
+}
+
+.calculate-distance-form-road-number input {
+  width: 20%;
+}
+
+.calculate-distance-form-dist-city-state {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  padding-bottom: 1vh;
+}
+
+.calculate-distance-form-dist-city-state input:last-child {
+  width: 20%;
+}
+
+.calculate-distance-form-dist-city-state input {
+  width: 35%;
+}
+
+.calculate-distance-form-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: #cf1322;
+  border-radius: 5px;
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
+  transition: background-color 0.3s ease; /* Adiciona uma transição suave na mudança de cor */
+}
+
+.calculate-distance-form-button button {
+  width: 100%;
+  height: 5vh;
+  min-height: 40px;
+  max-height: 80px;
+  font-size: larger;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
+}
+
+.calculate-distance-form-button-div {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+.calculate-distance-form-button:hover {
+  background-color: #a8071a;
+}
+
+.calculate-distance-form-button:active {
+  background-color: #820014;
+}
+
+.calculate-distance-form-button button:disabled {
+  background-color: #bfbfbf;
+  cursor: not-allowed;
+  color: #000000;
+}
+
+.calculate-distance-form-button button:disabled:hover {
+  background-color: #8c8c8c;
+}
+
+.calculate-distance-form-distance {
+  background-color: #141414;
+  padding: 2vh 2vw;
+  border-radius: 5px;
+  width: 5vw;
+  min-width: 50px;
+  height: 5vh;
+  min-height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
